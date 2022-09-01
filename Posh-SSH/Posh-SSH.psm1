@@ -902,6 +902,11 @@ function Invoke-SSHStreamShellCommand {
                    ValueFromPipelineByPropertyName = $true)]
         [string]
         $PrompPattern = '[\$%#>] $'
+
+        [Parameter(Mandatory = $false,
+                   ValueFromPipelineByPropertyName = $true)]
+        [Int32]
+        $CommandTimeout = 500
     )
 
     Begin {
@@ -918,7 +923,7 @@ function Invoke-SSHStreamShellCommand {
 
         #discard line with command entered
         $ShellStream.ReadLine() | Out-Null
-        Start-Sleep -Milliseconds 500
+        Start-Sleep -Milliseconds $CommandTimeout
 
         $out = ''
 
