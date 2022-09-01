@@ -901,7 +901,7 @@ function Invoke-SSHStreamShellCommand {
         [Parameter(Mandatory = $false,
                    ValueFromPipelineByPropertyName = $true)]
         [string]
-        $PrompPattern = '[\$%#>] $'
+        $PrompPattern = '[\$%#>] $',
 
         [Parameter(Mandatory = $false,
                    ValueFromPipelineByPropertyName = $true)]
